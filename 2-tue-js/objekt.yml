@@ -1,0 +1,32 @@
+bloom: remember
+input: javascript
+questions: |
+  ## Objekty a pole
+
+  Hodnoty je možné ukládat ve složitějších strukturách: nejčastěji užívané jsou
+  objekty a pole.
+
+  - Pole je sada očíslovaných hodnot.
+  - Objekt je sada pojmenovaných hodnot.
+
+  Pole budeme v dalších dnech používat velice často. 
+  (Takto bez varování přichází feudalismus. Zapamatujte si to.)
+
+  > **Pozn.:** Pole je v Javascriptu specifický typ objektu, což je dost podstatné, ale ne teď :)
+prefill: |
+  var numbers = [43, 12, 45, 55, 99];
+  console.log(1, numbers[2]); //
+
+  var corpse = {
+    name: 'Maxmilián Dráp',
+    hobby: 'filatelie',
+    pride: 'modrý Mauritius (spálen)',
+    died: new Date('1901/9/8'),
+    cause: 'žal'
+  };
+
+  console.log(2, corpse.name);
+  console.log(3, corpse['name']);
+
+  var attribute = 'hobby';
+  console.log(4, corpse[attribute]);

@@ -1,0 +1,16 @@
+bloom: apply
+input: javascript
+questions: |
+  - V konzoli zobrazují chyby běžícího skritpu. Zkuste nějakou vyvolat.
+  - Když v kódu použijete volání `console.log(color)`, do konzole se vypíše
+  obsah proměnné `color`. 
+  - Vypsat si můžete libovolné množství proměnných, dokonce i najednou: `console.log(x, y)`
+  - Krom vypsání konkrétní proměnné můžete vyvolat javascriptový debugger. Stačí napsat do skriptu `debugger;` a skript se v tom místě zastaví
+  a vy si můžete prostudovat, jaké proměnné jsou v daném místě definované,
+  a jaké mají hodnoty.
+prefill: |
+  var pocetKnedliku = 3; // do proměnné uložím trojku
+  console.log('Nejdřív mám jen ' + pocetKnedliku + ' knedlíky.');
+
+  pocetKnedliku = pocetKnedliku + 11; // přidám si 11 knedlíků
+  console.log('A nakonec mám ' + pocetKnedliku + ' knedlíků.');

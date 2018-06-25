@@ -1,0 +1,17 @@
+author: Jan Martinek <info@jan-martinek.com>
+name: Bootcamp!
+goals: ""
+methods: ""
+support: ""
+menu:
+  - val: Slack
+    link: 
+  - val: Anon. feedback
+    link: http://goo.gl/forms/14y1pi3ZzN
+units:
+  - 1-mon-start
+  - 2-tue-js
+  # - 3-wed-regex-cli
+  # - 4-thu-recursion
+  # - 5-fri-interaction
+  # - 6-sat-collaboration

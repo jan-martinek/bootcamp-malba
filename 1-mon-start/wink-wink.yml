@@ -1,0 +1,52 @@
+bloom: apply
+input: turtle
+vars:
+  shape:
+    - trojúhelník
+    - pětiúhelník
+    - šestiúhelník
+    - sedmiúhelník
+    - osmiúhelník
+    - devítiúhelník
+    - desetiúhelník
+questions: |
+  V předvyplněném kódu želva kreslí čtverec. Upravte kód tak, aby kreslila
+  %shape%.
+
+  Želva umí poslouchat jen následující příkazy:
+
+  - `turtle.left(angle)`
+  - `turtle.right(angle)`
+  - `turtle.forward(length)`
+  - `turtle.back(length)`
+prefill: |
+  var turtle, run, size = toy.measure();
+  var mystery = 4;
+  var dist = 100;
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+
+    turtle = new Turtle(p);
+    run = turtle.getRun();
+    turtle.color = 'white';
+
+    repeat(function() {
+      turtle.forward(dist);
+      turtle.right(360/mystery);
+    }, mystery);
+    
+    turtle.right(720);
+  };
+
+  p.draw = function() {
+    p.background('purple');
+    run.animate(3);
+  };
+
+  function repeat(fn, n) {
+    var a = Array.apply(null, Array(n)).map(
+      function (_, i) {return i + 1;}
+    ).forEach(fn);
+  }

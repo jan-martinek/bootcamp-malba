@@ -1,0 +1,31 @@
+bloom: remember
+input: javascript
+questions: |
+  ## Operátory
+
+  S hodnotami je možné pracovat pomocí operátorů.
+prefill: |
+  var x = false; // přiřazení
+  console.log(1, x);
+
+  console.log(2, 4 + 1 == 6 - 1); // sčítání, porovnání, odčítání
+
+  console.log(3, 8 / 2 == 2 * 2); // dělení, porovnání, násobení
+
+  console.log(4, true && true); // „a zároveň“
+
+  console.log(5, true || false); // „nebo“
+
+  console.log(6, 5 % 2); // modulo (zbytek dělení)
+
+
+  // pozor na datové typy
+  console.log(7, "jedna" + "dva"); // operátor spojování řetězců
+
+  console.log(8, "10" * 1); // !!
+  console.log(9, 1 + "10"); // !!
+
+  var y;
+  console.log(10, y, y + 1); // !!
+
+  console.log(11, 1 / 0); // !!!

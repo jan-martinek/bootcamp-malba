@@ -1,0 +1,27 @@
+bloom: understand
+input: javascript
+questions: |
+  ## Literály a proměnné
+
+  Literály jsou přímé zápisy nějaké hodnoty (5, "legrace", true). 
+  Hodnoty můžete pojmenovat a skrze tyto názvy k nim pak 
+  přistupovat —\_takto můžete vytvářet **proměnné**. 
+
+  Následující **příkaz** ukládá (přiřazuje) hodnotu `3` do proměnné nazvané `cislo`:
+
+  `var cislo = 3;''
+prefill: |
+  var a = 5; // každý příkaz je ukončený středníkem
+  var b = 3.14;
+  var c = a + b;
+  console.log('číslo', c);
+
+  var word1 = "ahoj";
+  var word2 = "světe";
+  var words = word1 + " " + word2;
+  console.log('řetězec', words);
+
+  var x = true;
+  var y = false;
+  var z = x == y;
+  console.log('logická hodnota', z);

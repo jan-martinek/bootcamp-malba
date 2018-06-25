@@ -1,0 +1,37 @@
+bloom: apply
+input: code
+questions: |
+  ## Písanka
+
+  Najděte na klávesnici následující znaky a zkuste si napsat kousky textu.
+prefill: |
+  Znaky:
+
+  - [] 
+  - {} 
+  - <>= 
+  - '' 
+  - "" 
+  - `` 
+  - * 
+  - & 
+  - | 
+  - ; 
+  - $ 
+  - ^ 
+  - \ 
+  - / 
+
+  
+  Kousky textu:
+
+  - { names: ['Řehoř', 'Práxitelés'] };
+
+
+  - now >= before
+
+
+  - /^\.+$/
+
+
+  - (bread && water) || salami

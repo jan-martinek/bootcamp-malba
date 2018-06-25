@@ -1,0 +1,42 @@
+bloom: remember
+input: javascript
+questions: |
+  ## Funkce
+
+  Funkce je základní stavební jednotkou kódu (nebo ne). 
+
+  Podstatné aspekty každé funkce:
+
+  - co chce?
+  - co vrací?
+  - k jakým proměnným má přístup?
+  - má vedlejší účinky (side effects)?
+prefill: |
+  var x = 5;
+
+  function multiplyByTwo(number) {
+    return number * 2;
+  }
+
+  var multiplyByThree = function(number) {
+    return number * 3;
+  };
+
+  var multiplyByFour = (number) => {
+    return number * 4;
+  };
+
+  var multiplyByFive = number => number * 5;
+
+  var addUnit = (number, unit) => {
+    return number + ' ' + unit;
+  };
+
+  console.log(1, multiplyByTwo(x));
+  console.log(2, multiplyByThree(x));
+  console.log(3, multiplyByFour(x));
+  console.log(4, multiplyByFive(x));
+  console.log(5, addUnit(x, 'km'));
+
+  console.log(6, addUnit(multiplyByTwo(multiplyByThree(x)), 'km'));
+  

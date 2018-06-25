@@ -1,0 +1,16 @@
+bloom: remember
+input: javascript
+questions: |
+  ## Pole: Focus VM
+
+  Pole je užitečné díky automaticky dostupným svým funkcím. Hodně zajímavé jsou především:
+
+  - push(val), pop()
+  - shift(), unshift(val)
+  - includes(val), indexOf(val)
+  - map(fn), forEach(fn), reduce(fn), filter(fn)
+  - keys()
+prefill: |
+  var names = ['Naomi', 'James', 'Alex', 'Amos'];
+  var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37];
+  var score = [[2, 6], [7, 5], [6, 4]];
