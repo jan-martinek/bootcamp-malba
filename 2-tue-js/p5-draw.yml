@@ -1,0 +1,18 @@
+bloom: remember
+input: p5
+questions: |
+  ## p5.js: vektory
+
+prefill: |
+  var size = toy.measure();
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+    
+    p.translate(100, 100);
+    var start = p.createVector(0, 0);
+    var end = p.createVector(200, 200);
+    
+    p.line(start.x, start.y, end.x, end.y);
+  };

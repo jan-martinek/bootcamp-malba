@@ -1,0 +1,11 @@
+bloom: remember
+input: javascript
+questions: |
+  ## Pole: split() a join()
+prefill: |
+  var content = `Je to tak! Pan premiér dodržel dané slovo. Zeman: Babiš mi Pocheho na ministra zahraničí nenavrhl https://t.co/GZlFcdAkSR
+  Podporovatel migrace obviňovaný z korupce nemůže být ve vládě, míní Zeman.
+  STOP novodobým kádrovákům, kteří chtějí zničit svobodu a demokracii. Jednoznačná podpora Václava Klause ml.
+  Opakuji, že plnou odpovědnost za vzniklou situaci i následky nese výhradně ČSSD. Nikoliv prezident republiky!
+  RT @SociologPetrHam: Počítejme s tím, že se v nejbližších hodinách objeví v mainstreamových médiích články, že Poche nikdy nebyl proimigrační, a že to jen Putinův hoax. Možná dojde i na trestní stíhání těch, kdo budou připomínat Pocheho nedávno minulost. Přesně dle vzoru Drahoš.
+  Hezký mediální pokus o záchranu. Takže ještě jednou a důrazně, to fakt není falešná zpráva: On se postavil proti ČR, a to je ten důvod, proč my nechceme Miroslava Pocheho.`;

@@ -1,0 +1,47 @@
+bloom: apply
+input: turtle
+questions: |
+  V předvyplněném kódu dopište kód, který 
+  
+  - **nakreslí domek**, s tím, že
+  - **želva začíná v levém horním rohu kresby natočená nahoru** a tak, aby
+  - **na konci želva stála v pravém dolním rohu domku natočená nahoru**.
+prefill: |
+  var turtle, run, size = toy.measure();
+  var count = 5;
+
+  function house() {
+    // nakreslete domek
+
+    moveOn();
+  }
+
+  function moveOn(i) {
+    turtle.penDown = false;
+    turtle.right(90);
+    turtle.forward(40);
+    turtle.left(90);
+  }
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+
+    turtle = new Turtle(p);
+    turtle.color = 'white';
+    repeat(house, count);
+
+    run = turtle.getRun();
+    turtle.right(720);
+  };
+
+  p.draw = function() {
+    p.background('#f60');
+    run.animate(3);
+  };
+
+  function repeat(fn, n) {
+    var a = Array.apply(null, Array(n)).map(
+      function (_, i) {return i + 1;}
+    ).forEach(fn);
+  }

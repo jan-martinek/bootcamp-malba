@@ -4,17 +4,22 @@ rubrics:
   - Bez hodnocení.
 outline:
   - klavesnice.yml
+  - debug.yml
+
+  - turtling.yml
 
   - var-typy.yml
   - operatory.yml
   - funkce.yml
-  - debug.yml
+  - split-join.yml
 
   - objekt.yml
   - pole.yml
 
-  # - p5-setup.yml
-  # - p5-xy-vector.yml
-  # - p5-translate.yml
-  # - p5-mouse.yml
-  # - p5-draw.yml
+  - p5-setup.yml
+  - p5-xy-vector.yml
+  - p5-translate.yml
+  
+  - p5-draw.yml
+  - p5-mouse.yml
+  

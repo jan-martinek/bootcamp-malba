@@ -1,0 +1,15 @@
+bloom: remember
+input: p5
+questions: |
+  ## p5.js: setup()
+
+prefill: |
+  var size = toy.measure();
+  var center;
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+    
+    p.ellipse(size.w / 2, size.h / 2, 30);
+  };

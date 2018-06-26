@@ -1,0 +1,19 @@
+bloom: remember
+input: p5
+questions: |
+  ## p5.js: myš
+
+prefill: |
+  var size = toy.measure();
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+  };
+
+  p.draw = function() {
+    var start = p.createVector(p.mouseX, p.mouseY);
+    var end = p.createVector(200, 200);
+    
+    p.line(start.x, start.y, end.x, end.y);
+  };

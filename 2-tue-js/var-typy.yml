@@ -9,7 +9,7 @@ questions: |
 
   Následující **příkaz** ukládá (přiřazuje) hodnotu `3` do proměnné nazvané `cislo`:
 
-  `var cislo = 3;''
+  `var cislo = 3;`
 prefill: |
   var a = 5; // každý příkaz je ukončený středníkem
   var b = 3.14;
