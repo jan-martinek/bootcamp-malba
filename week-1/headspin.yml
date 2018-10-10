@@ -1,0 +1,85 @@
+bloom: apply
+input: p5
+questions: |
+  ## Run, Forrest, run
+
+  Poslední úkol připomíná, že výsledkem programování grafiky nemusí být jen
+  obrázek, ale může to být i animace.
+
+  Pokud jste občas koukali i pod komentář „odsud dál už nemusíte kód zkoumat“,
+  tak jste si mohli všimnout, že jednu z funkcí vždy volám z funkce
+  nazvané `setup`. Pokud jste nekoukali, tak vám to teď říkám :-) Díky tomu, že 
+  funkce `setup` zavolala funci `drawGrid` se mřížka vykreslila: bez toho by to
+  nešlo.
+
+  > Pozn.: Funkci `setup` si volá samotná knihovna p5.js po otevření stránky.
+
+  To se tentokrát změnilo a volání přichází z funkce `draw`. Rozdíl je 
+  v tom, že knihovna p5.js `setup` spustí vždy jen jednou, zatímco
+  funkci `draw` (pokud existuje) volá 60&times; za sekundu (rychlost
+  vykreslování je [možné změnit](https://p5js.org/reference/#/p5/frameRate)). 
+
+  Díky tomu je možné vytvářet animaci — stačí znovu a znovu kreslit obrázek,
+  který se něčím trochu liší.
+
+  V našem případě se otáčí celá kreslící plocha pomocí funkce `rotate`. Přibývající čas
+  je vydělený velkým číslem, aby se otáčení zpomalilo.
+  
+  > Pozn.: Mřížka je zároveň posunutá z levého horního rohu pomocí funkce `translate`, aby
+  byla lépe vidět — jinak by byla často schovaná mimo plátno.
+
+  Zkuste si zaexperimentovat — přehoďte řádek s rotací jinam — co se změní?
+  Posuňte přičítání času jinam, co se stane?
+  Změňte s časem jinou proměnnou (velikost, pozici, barvu atp.) a sledujte výsledek. 
+
+  > Tip: Pokud potřebujete, aby nějaké číslo nepřekročilo nějakou hodnotu, 
+  použijte modulo (`%`).
+
+  Nějakou chvíli experimentujete a až vytvoříte něco dostatečně jiného, máte
+  hotovo. Nedělejte zcela náhodné změny, ale zkuste přemýšlet, proč je výsledek
+  takový, jaký je (proč se například něco točí rychleji, když je otáčecí funkce 
+  volána na jiném místě kódu).
+
+  Doufám, že v tuhle chvíli už máte zase javascript trochu pod kůží
+  a těším se na další lekci, která představí další kousky javascriptu.
+prefill: |
+  var time = 0;
+
+  var drawTile = function(x, y, grid) {
+    var size = grid - 2;
+    p.rect(x * grid, y * grid, size, size);
+  };
+
+  var drawGrid = function() {
+    var x = 0;
+    var y = 0;
+    var grid = 30;
+
+    p.rotate(time / 50);
+
+    while (x < 10) {
+      y = 0;
+      while (y < 10)  {
+        drawTile(x, y, grid);
+        y = y + 1;
+      }
+      x = x + 1;
+    }
+  };
+
+  // odsud dál už to nejspíš neznáte,
+  // ale teď se sem mrkněte a kdyžtak 
+  // to srovnejte s předchozími úkoly
+  p.setup = function() {
+    var size = toy.measure();
+    p.createCanvas(size.w, size.h);
+    p.fill(0, 50);
+    p.noStroke();
+  };
+
+  p.draw = function() {
+    p.background(240);
+    p.translate(200, 200);
+    drawGrid();
+    time = time + 1;
+  };

@@ -1,0 +1,19 @@
+title: "Týden 1: Back to the future."
+goals: ""
+rubrics:
+  - checklist: ''
+    items:
+      - 👍 Líbí se mi to!
+  - |
+    Okomentujte, co se vám líbí a co ne. 
+    Pokud upozorníte na nějaký problém, zkuste vysvětlit v čem spočívá
+    anebo popsat jak to udělat lépe.
+outline:
+  - intro.md
+  - open.yml
+  - box.yml
+  - box2.yml
+  - boxes.yml
+  - grid.yml
+  - checkers.yml
+  - headspin.yml

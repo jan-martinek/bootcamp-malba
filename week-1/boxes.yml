@@ -1,0 +1,68 @@
+bloom: apply
+input: p5
+questions: |
+  ## Cyklus `while`
+
+  Ve třetím úkolu konečně kreslíme více čtverečků.
+
+  Používáme pro to tzv. *cyklus* (anglicky *loop*) `while`. 
+  Jeho zápis je relativně jednoduchý:
+
+      while (podmínka) {
+        příkazy
+      }
+
+  Podmínka určuje, zda se kód vykoná. Po vykonání příkazů se 
+  cyklus vrátí zpět na začátek a pokud podmínka stále platí,
+  příkazy se vykonají znovu.
+
+  Mohli bychom tedy napsat třeba
+
+      while (0 < 1) {
+        p.rect(0, 0, 10, 10);
+      }
+
+  A cyklus by se opakoval donekonečna: nula bude vždy menší než
+  jednička. Podstatné je, že by to nejspíše shodilo prohlížeč,
+  protože není stavěný na kreslení nekonečného množství čtverečků 
+  (v určitých případech si prohlížeč všimne, že se dostal do 
+  nekonečného cyklu a utne ho, ale nefunguje to vždy).
+
+  Zajímavější jsou tedy cykly, které časem skončí, například kvůli
+  tomu, že v podmínce je proměnná, která se mění.
+
+      var x = 0;
+
+      while (x < 10) {
+        p.rect(0, 0, 10, 10);
+        x = x + 1;
+      }
+
+  Tento cyklus kreslí čtverečky, dokud je uvnitř proměnné x číslo
+  menší než 10. Kreslí je ale přes sebe. Konečně se tak dostáváme
+  k živému příkladu: ten využívá proměnnou `x` pro kreslení čtverečků.
+
+  Místo několika čtverečků ale dostáváme dlouhý obdélník…
+
+  Upravte kód tak, aby čtverečky byly vykreslené jednotlivě (nedotýkaly
+  se hranou). Není žádné špatné řešení, klidně si jich vyzkoušejte víc.
+prefill: |
+  var boxes = function() {
+    var x = 0;
+    var grid = 30;
+    var size = grid;
+
+    while (x < 10) {
+      p.rect(x * grid, 0, size, size);
+      x = x + 1;
+    }
+  };
+
+  // odsud dál už nemusíte kód zkoumat
+  p.setup = function() {
+    var size = toy.measure();
+    p.createCanvas(size.w, size.h);
+    p.fill(0, 50);
+    p.noStroke();
+    boxes();
+  };

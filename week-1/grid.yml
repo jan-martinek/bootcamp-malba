@@ -1,0 +1,117 @@
+bloom: apply
+input: p5
+questions: |
+  ## Mřížka a kompozice
+
+  Čtverečky jsou oddělěné a tentokrát jich není řádka, ale celá mřížka.
+
+  Kód začíná být trochu složitější — místo jednoho cyklu jsou tu dva,
+  ale pořád je to už známý cyklus `while` (a vystačíme si s ním až do konce
+  tohoto úkolu).
+
+  Kód začíná být trochu složitý, což je dobrá chvíle pro definici nové 
+  funkce. Nejdřív si kód funkce `drawGrid` projděte, abyste si byli jistí, co dělá.
+
+  ### CTRL+C / CTRL+V
+
+  Několik následujících kroků je pak prostý copy paste. Jop,
+  fakt to po vás chci :).
+
+  Nahraďte řádek
+
+      p.rect(x * grid, y * grid, size, size);
+
+  voláním funkce `drawRectangle`:
+
+      drawRectangle(x, y, grid);
+
+  A tuto novou funkci pak vložte na začátek kódu:
+
+      var drawRectangle = function(x, y, grid) {
+        var size = grid - 2;
+        p.rect(x * grid, y * grid, size, size);
+      };
+
+  <blockquote>
+    <p>Pozn.: Tato funkce má několik parametrů, kterými může získat hodnoty:
+      <code>x</code>, <code>y</code>, a <code>grid</code>. Ty jsou pak uvedeny 
+      při jejím volání <code>drawRectangle(x, y, grid)</code>.
+      Funkce může interně používat úplně jiná pojmenování, takže by mohla
+      vypadat i takto a vše by fungovalo stejně (můžete si to vyzkoušet):
+    </p>
+    <pre>var drawRectangle = function(fromLeft, fromTop, gap) {
+    var size = gap - 2;
+    p.rect(fromLeft * gap, fromTop * gap, size, size);
+  };</pre>
+  </blockquote>
+
+  Uvnitř funkce `drawRectangle` je definována proměnná size, 
+  její definici tedy už nepotřebujeme v původním kódu.
+  Můžete tedy smazat řádek uvnitř funkce `grid`:
+
+      var size = grid - 2;    
+
+  Tímto se pěkně oddělí kód pro kreslení samotného čtverečku a kód,
+  který kreslí mřížku.
+
+  To je dobré k tomu, abyste se v kódu sami vyznali — je snadnější zkoumat
+  každou z částí odděleně a také je to dobré, když chcete kus kódu
+  přenést do jiného programu a využít znovu něco, co už máte hotové.
+  V analytické praxi to může být třeba graf, který sestavujete často
+  anebo dotaz do databáze, který se s malými obměnami objevuje u každého
+  projektu.
+
+  Schopnost rozdělit problém na menší, lépe pozorovatelné
+  problémy (dekompozice), a následně vše složit zpět dohromady (kompozice)
+  užitečná nejen v programování — ale nikde jinde se s tím nedá hrát
+  tak snadno. Nikde jinde nemáte tak rychlou zpětnou vazbu.
+
+  ### Back to serious work
+
+  Tak, měli byste před sebou mít funkční kód, který skrze funkci
+  `drawRectangle` kreslí mřížku. Když už tuto funkci máme vyčleněnou,
+  pojďme s ní něco udělat.
+
+  Využijte generátoru náhodných čísel a slov, který poskytuje
+  funkce `random` a mřížku trochu pocuchejte. Například následující řádky
+  způsobí po přidání kamkoli do funkce 'drawRectangle', že vykreslené 
+  čtverečky budou mít náhodnou šedou barvu — mezi černou (hodnota 0) a
+  bílou (hodnota 255).
+
+      var randomGray = p.random(0, 256);
+      p.fill(randomGray);
+
+  (Zkuste si to a skript spusťte vícekrát.)
+
+  Prostudujte si [způsob použití generátoru `random` 
+  v dokumentaci](https://p5js.org/reference/#/p5/random) a vytvořte
+  aspoň tři různé generátory (čísel nebo slov), abyste nějak ovlivnili
+  vlastnosti vykreslených čtverečků. 
+
+  Pozn.: Můžete změnit kontext (používaná barva výplně, barva a tloušťka 
+  obrysu atp.) nebo i vlastnosti samotného čtverečku (velikost, pozice atp.).
+prefill: |
+  var drawGrid = function() {
+    var x = 0;
+    var y = 0;
+    var grid = 30;
+    var size = grid - 2;
+    
+    while (x < 10) {
+      while (y < 10) {
+        p.rect(x * grid, y * grid, size, size);
+        y = y + 1;
+      }
+      x = x + 1;
+      y = 0;
+    }
+  };
+
+  // odsud dál už nemusíte kód zkoumat
+  p.setup = function() {
+    var size = toy.measure();
+    p.createCanvas(size.w, size.h);
+    p.fill(0, 50);
+    p.noStroke();
+    drawGrid();
+  };

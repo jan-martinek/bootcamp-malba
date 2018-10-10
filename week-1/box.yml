@@ -1,0 +1,25 @@
+bloom: apply
+input: p5
+questions: |
+  ## Kreslíme čtvereček
+
+  V první lekci kreslíme jen jeden jediný čtvereček, opět pomocí knihovny p5.js, se kterou jsme pracovali pod Kokořínem ([její dokumentace](https://p5js.org/reference)). Oba kroky si možná pamatujete, ale i tak mrkněte na dokumentaci.
+
+  Mrkněte na [dokumentaci funkce `rect`](https://p5js.org/reference/#/p5/rect) a zjistěte, jak nakreslit větší čtvereček, který se nedotýká levého horního rohu kreslícího plátna a má zakulacené rohy. 
+
+  Pak mrkněte na [dokumentaci funkce `fill`](https://p5js.org/reference/#/p5/fill) a zjistěte, jak změnit jeho barvu.
+
+  Proveďte všechny úpravy — tak, aby byl čtvereček větší, zakulacený, nedotýkal se levého horního rohu a měl jinou barvu.
+prefill: |
+  var box = function() {
+    p.fill('aqua');
+    p.rect(0, 0, 30, 30);
+  };
+
+  // odsud dál už nemusíte kód zkoumat
+  p.setup = function() {
+    var size = toy.measure();
+    p.createCanvas(size.w, size.h);
+    p.noStroke();
+    box();
+  };

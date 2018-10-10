@@ -1,0 +1,31 @@
+bloom: apply
+input: p5
+questions: |
+  ## Kreslíme jeden jediný čtvereček #2
+
+  Aby dnešek nebyl tak intenzivní, ještě jedna úloha s jediným čtverečkem.
+
+  Tentokrát je úkol úplně jiný. Cílem je jen přepsat všechny parametry, 
+  které dáváme funkcím `fill`, `stroke` a `rect` do proměnných. Už jsem 
+  s tím začal, takže vidíte proměnné `color` a `x`. Pojmenujte zbývající hodnoty 
+  (použijte smyslupné názvy).
+
+  Návodná poznámka: Jedno z čísel se opakuje, budete pro něj definovat
+  jednu nebo dvě proměnné?
+prefill: |
+  var box = function() {
+    var color = 'aqua';
+    var x = 0;
+
+    p.fill(color);
+    p.stroke('orange');
+    p.rect(x, 20, 60, 60);
+  };
+
+  // odsud dál už nemusíte kód zkoumat
+  p.setup = function() {
+    var size = toy.measure();
+    p.createCanvas(size.w, size.h);
+    p.noStroke();
+    box();
+  };
