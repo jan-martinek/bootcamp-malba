@@ -1,4 +1,4 @@
-## Array (pole)
+## Array, česky *pole*
 
 Pole je datový typ, který skladuje hodnoty v daném pořadí. Například čísla: 1, 10, 3, 12, 24. Hodnoty
 nejsou „seřazené“ v běžném slova smyslu (nemají žádné logické pořadí), ale pořadí je dané — na prvním
