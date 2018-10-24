@@ -12,6 +12,7 @@ units:
   - 1-mon-start
   - 2-tue-js
   - week-1
+  - week-2
   # - 3-wed-regex-cli
   # - 4-thu-recursion
   # - 5-fri-interaction

@@ -1,0 +1,87 @@
+bloom: apply
+input: p5
+questions: |
+  ### Velké divadlo s malými daty
+
+  Zajímavější to je, když samozřejmě máme k dispozici nějaká data. Krom názvů teď máme
+  počty obyvatel krajů.
+
+  K funkci `writeOnCanvas()`, která se přejmenovala, ale jinak je stejná
+  jako u předchozího úkolu, přibyly dvě nové — první dělá to samé, ale vypisuje
+  názvy (trochu víc vpravo).
+
+  Zajímavá je ta třetí, která na základě počtu vykresluje jednoduchou vizualizaci. Prohlédněte si 
+  kód a výstup a podíváme se na to blíž.
+
+  ### Jak to funguje?
+
+  Funkce `displayLine()` si stejně ta textová spočte, jak daleko má být linka od horního okraje (všimněte si desítky
+  místo patnáctky — linky tak pasují lépe k řádkům textu):
+
+      var fromTop = 10 + (index * 15);
+
+  Poté určí vzdálenost začátku a konce od levého okraje (levý bod je určený námi, pravý bod se dopočítá
+  na základě počtu obyvatel):
+
+      var start = 250;
+      var end = start + (count / 10000);
+
+  Tímto jsou spočteny parametry, které potřebuje funkce `p.line()` ([dokumentace](https://p5js.org/reference/#/p5/line)),
+  tedy dva body určené souřadnicemi `x` a `y`. Zadávají se jako `p.line(x1, y1, x2, y2)`.
+
+  A pak vykreslí červenou linku:
+
+      p.stroke('red');
+      p.line(start, fromTop, end, fromTop);
+      p.noStroke();
+
+  (Na posledním řádku se linka vypne, aby neměl všechen text červený obrys.)
+
+  ### Co s tím?
+
+  Vymyslete si jinou vizualizaci — můžete použít bubliny, velikost písma, pozici slov, svislý graf 
+  nebo cokoli jiného a zkuste ji zapracovat.
+  
+  V [dokumentaci](https://p5js.org/reference/#group-Shape) najdete způsob, jak vykreslit elipsu (`p.ellipse()`),
+  obdélník (`p.rect()`), jak [nastavit velikost písma](https://p5js.org/reference/#/p5/textSize) atp. 
+  Ale spíš zkuste vymyslet něco, co pracuje s tím, co již znáte.
+prefill: |
+  var names = ['Praha', 'Středočeský', 'Jihočeský', 'Plzeňský', 'Karlovarský', 'Ústecký', 'Liberecký', 'Královéhradecký', 'Pardubický',  'Vysočina', 'Jihomoravský', 'Olomoucký', 'Zlínský', 'Moravskoslezský'];
+  var counts = [1294513, 1352795, 640196, 580816, 295686, 821080, 441300, 551089, 518337, 508916, 1183207, 633178, 583056, 1205886];
+
+  var writeNameOnCanvas = function(text, index) {
+    var fromLeft = 10;
+    var fromTop = 15 + (index * 15);
+    p.text(text, fromLeft, fromTop);
+  };
+
+  var writeCountOnCanvas = function(count, index) {
+    var fromLeft = 150;
+    var fromTop = 15 + (index * 15);
+    p.text(count, fromLeft, fromTop);    
+  };
+
+  var displayLine = function(count, index) {
+    var fromTop = 10 + (index * 15);
+
+    var start = 250;
+    var end = start + (count / 10000);
+    p.stroke('red');
+    p.line(start, fromTop, end, fromTop);
+    p.noStroke();
+  };
+
+  var displayAllNames = function() {
+    names.forEach(writeNameOnCanvas);
+    counts.forEach(writeCountOnCanvas);
+    counts.forEach(displayLine);
+  };
+
+
+  // odsud dál už nemusíte kód zkoumat
+  p.setup = function() {
+    var size = toy.measure();
+    p.createCanvas(size.w, size.h);
+    p.noStroke();
+    displayAllNames();
+  };

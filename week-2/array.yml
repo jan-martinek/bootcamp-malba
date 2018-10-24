@@ -1,0 +1,54 @@
+bloom: apply
+input: p5
+questions: |
+  ### Procházení polem
+
+  Pole mají pomocné funkce, které umožňují pracovat s jejich obsahem. Vyzkoušíme
+  si nejprve funkci `forEach`, která prochází pole položku po položce — a definované
+  funkci předají *obsah* a *pozici* dané položky.
+
+  Můžeme si tedy definovat funkci, která vypíše názvy, které máme. Mrkněte na předvyplněný kód
+  a spusťte si ho. `displayAllNames()` volá pro každou položku `writeOnCanvas()`. Tato funkce pak
+  spočítá, jak daleko od horního a levého okraje má názvy vypsat a vypíše je.
+
+  Mrkněte na [dokumentaci funkce `text` z knihovny p5](https://p5js.org/reference/#/p5/text),
+  ať je vám jasné, jak to funguje.
+
+  ### Kolumbův seznam
+
+  **Změňte kód tak, aby se názvy vypisovaly od spodního okraje** — výšku plátna zjistíte pomocí
+  funkce, kterou si můžete zkopírovat:
+
+      var getCanvasHeight = function() {
+        return toy.measure().h;
+      };
+
+  A poté kdekoli zavolat:
+
+      var canvasHeight = getCanvasHeight();
+
+  (Stačí změnit kód ve funkci writeOnCanvas, zbytek by měl zůstat stejný.)
+
+  > **Pozn.:** Není v tom žádný chyták! Spíš se můžete zaseknout na nějaké technické drobnosti.
+  Pokud nevíte, jak na to, projděte si kód funkce `writeOnCanvas()` a zkuste si na papíře popsat,
+  jak změnit její obsah, aby vypsal Prahu u dolního okraje.
+prefill: |
+  var names = ['Praha', 'Středočeský', 'Jihočeský', 'Plzeňský', 'Karlovarský', 'Ústecký', 'Liberecký', 'Královéhradecký', 'Pardubický',  'Vysočina', 'Jihomoravský', 'Olomoucký', 'Zlínský', 'Moravskoslezský'];
+
+  var writeOnCanvas = function(text, index) {
+    var fromLeft = 10;
+    var fromTop = 15 + (index * 15);
+    p.text(text, fromLeft, fromTop);
+  };
+
+  var displayAllNames = function() {
+    names.forEach(writeOnCanvas);  
+  };
+
+  // odsud dál už nemusíte kód zkoumat
+  p.setup = function() {
+    var size = toy.measure();
+    p.createCanvas(size.w, size.h);
+    p.noStroke();
+    displayAllNames();
+  };

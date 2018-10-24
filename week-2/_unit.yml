@@ -1,0 +1,17 @@
+title: "Týden 2: Small Data"
+goals: ""
+rubrics:
+  - checklist: ''
+    items:
+      - 👍 Líbí se mi to!
+  - |
+    Okomentujte, co se vám líbí a co ne. 
+    Pokud upozorníte na nějaký problém, zkuste vysvětlit v čem spočívá
+    anebo popsat jak to udělat lépe.
+outline:
+  - intro.md
+  - open.yml
+  - array.md
+  - array.yml
+  - arrays.yml
+  - pyramid.yml

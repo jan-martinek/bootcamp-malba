@@ -1,0 +1,45 @@
+bloom: apply
+input: p5
+questions: |
+  V následujícím kódu máte dvě pole s čísly — obsahují počty žen a můžu ve věkových skupinách od 0
+  do 99 let.
+
+  V poli s klíčem 0 jsou tedy lidé ve věku nižším než rok, v poli 1 jsou lidé, kteří již oslavili
+  první narozeniny atd. Je zajímavé, že nepotřebujeme pole s popiskem, protože stačí pořadí.
+
+  > **Pozn.:** V datech nejsou lidé, kteří jsou starší než 100 let, protože jsou [ve statistice
+  ČSÚ](https://www.czso.cz/csu/czso/vekove-slozeni-obyvatelstva-2017) v jedné kolonce 100+.
+  A to se mi nehodilo :)
+
+  Na základě znalostí z předchozího úkolu zkuste vykreslit tzv. 
+  [populační pyramidu](https://en.wikipedia.org/wiki/Population_pyramid). Umíte nakreslit linku,
+  umístit ji na správné místo a nastavit její barvu. Takže máte vše potřebné.
+
+  Pokud byste chtěli kreslit jiným způsobem, je to na vás — sloupečky mohou být klidně nakreslené
+  pomocí obdélníků, můžete využít nějaký jiný než klasický design apod. Ale hlavně si to vyzkoušejte.
+
+  V kódu je připravené téměř vše, stačí dopsat funkce pro vykreslování částí grafu.
+prefill: |
+  var displayFemGroup = function(count, age) {
+
+  };
+
+  var displayMaleGroup = function(count, age) {
+    
+  };
+
+  var femCounts = [54787,54452,54293,53128,53774,53494,58348,59580,60069,58118,52861,50317,47779,46035,45592,44738,44061,44059,44811,45573,45847,48655,54013,60742,61236,65192,66655,66346,69092,67925,68993,70700,70724,70994,72772,73122,76767,84969,87794,89132,91203,93161,93641,87228,79383,74916,72038,68953,65900,65895,66919,69383,72439,70286,63265,61828,60382,59810,65257,69972,72646,73479,73857,74097,75479,76091,74132,72070,73610,76165,73185,58800,60489,57829,50324,47382,45297,39455,36721,33621,31974,30370,29341,27570,26874,24473,22270,18673,16221,13393,11125,8867,7099,5516,3947,2714,1622,878,303,247];
+  
+  var maleCounts = [57757,57313,57245,55846,56239,56321,61606,62044,63059,60529,56160,52925,50725,48658,48221,47275,47332,46211,47055,47558,47916,50894,56377,63546,64475,68643,69334,68901,71679,71826,73388,74922,75422,75522,76970,77554,82293,90231,92795,94032,96442,97578,98845,92964,83893,78844,75589,72836,68996,69035,69454,71951,75076,71787,64283,62313,61031,59753,63450,67626,68961,69065,68267,68065,68039,66778,64924,61786,62815,62985,59119,45539,46482,43725,37161,34065,32058,26409,24022,21042,19231,18005,16647,15037,14178,12202,10643,8595,6894,5303,4159,3175,2292,1704,1113,746,398,217,88,42];
+
+  var displayChart = function() {
+    femCounts.forEach(displayFemGroup);
+    maleCounts.forEach(displayMaleGroup);
+  };
+
+  // odsud dál už nemusíte kód zkoumat
+  p.setup = function() {
+    var size = toy.measure();
+    p.createCanvas(size.w, size.h);
+    displayChart();
+  };
