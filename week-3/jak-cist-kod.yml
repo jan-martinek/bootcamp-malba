@@ -1,0 +1,53 @@
+bloom: understand
+input: turtle
+questions: |
+  Projděte následující podobně strukturovaný kód (je převzatý z jedné z úloh z této lekce a zjednodušený). 
+
+  Zkuste identifikovat
+
+  1. **metody, které jsou v kódu definované** a 
+
+  2. **průchod skriptem (klidně si ho popište na papír vlastními slovy** — nikoli od prvního do posledního řádku, ale dle výše popsané logiky. 
+
+  (Pokud by vás vyděsila složená podmínka s operátorem `||`, podívejte se na níže na část „Podmínkové výrazy“.)
+prefill: |
+  var turtle, run, size = toy.measure();
+
+  var goCarefully = function() {
+    turtle.forward(10);
+    
+    if (
+      turtle.getX() < 50 || 
+      turtle.getY() < 50 ||
+      turtle.getX() > size.w - 50 ||
+      turtle.getY() > size.h - 50
+    ) {
+      turnInShock();
+    }  
+  };
+
+  var turnInShock = function() {
+    turtle.back(20);
+    turtle.right(p.random(85,270));
+  };
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+
+    turtle = new Turtle(p);
+    repeat(goCarefully, 1000);
+    run = turtle.getRun();
+  };
+
+  p.draw = function() {
+    p.background(200);
+    run.animate(10);
+  };
+
+  var repeat = function(fn, n) {
+    var a = Array.apply(null, Array(n)).map(
+      function(_, i) {return i;}
+    ).forEach(fn);
+  };
+

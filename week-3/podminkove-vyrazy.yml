@@ -1,0 +1,9 @@
+bloom: understand
+input: javascript
+questions: |
+  Napište krátký skript, který obsahuje hádanku — slovní nebo číselnou. Klidně využijte nějakou sbírku hádanek na internetu. 
+
+  Pokud uživatel uhádne správné řešení, skript ho nějak odmění (např. milým slovem nebo potvrzením úspěchu). Pokud to uživatel netrefí, skript zareaguje nějakým jiným způsobem. Zpracujte odpověď tak, aby využívala odpověď uživatele.
+
+  Pro zisk uživatelského vstupu využijte metodu `window.prompt()`, kterou jste viděli v příkladech výše. Pro výpis výsledku využijte `window.alert()` nebo výpis do konzole.
+

@@ -1,0 +1,68 @@
+bloom: understand
+input: turtle
+questions: |
+  ### Zadání
+
+  Napište tímto způsobem vlastní kód, který vykreslí panelák nebo jiný dům s mnoha okny a vchodem (pokud nechcete, nemusíte pracovat s parametry funkcí).
+prefill: |
+  var turtle, run, 
+    size = toy.measure(),
+    beamCount = 30,
+    beamSize = 100;
+
+  var drawSun = function() {
+    drawSunCircle();
+    drawSunbeams();
+  };
+
+  var goAndTurn = function() {
+    turtle.right(360 / beamCount);
+    turtle.forward(10);
+  };
+
+  var drawSunCircle = function() {
+    repeat(goAndTurn, beamCount);
+  };
+
+  var drawSunbeams = function() {
+    repeat(drawSunbeam, beamCount);
+  };
+
+  var drawSunbeam = function() {
+    // kus stejného opakování jako minule
+    goAndTurn();
+
+    // pero je vypnuté
+    turtle.penDown = false;
+    turtle.left(90);
+    turtle.forward(10);
+
+    // kreslení
+    turtle.penDown = true;
+    turtle.forward(beamSize);
+
+    // a návrat
+    turtle.penDown = false;
+    turtle.back(10 + beamSize);
+    turtle.right(90);
+  };
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+
+    turtle = new Turtle(p, size.w/2, size.h/2);
+    drawSun(beamCount);
+    run = turtle.getRun();
+  };
+
+  p.draw = function() {
+    p.background(200);
+    run.print();
+  };
+
+  var repeat = function(fn, n) {
+    var a = Array.apply(null, Array(n)).map(
+      function(_, i) {return i;}
+    ).forEach(fn);
+  };

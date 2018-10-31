@@ -1,0 +1,24 @@
+title: "Týden 3: Čtení na dlouhé a teplé zimní večery"
+goals: |
+  Tento týden využívám kus textu, který jsem nachystal pro jiný kurz. Jinými
+  slovy již shrnuje to, co jsme prošli společně, ale myslím, že to může
+  pomoci k upevnění znalostí.
+rubrics:
+  - checklist: ''
+    items:
+      - 👍 Líbí se mi to!
+  - |
+    Okomentujte, co se vám líbí a co ne. 
+    Pokud upozorníte na nějaký problém, zkuste vysvětlit v čem spočívá
+    anebo popsat jak to udělat lépe.
+outline:
+  - reading.md
+  - open.yml
+  - jak-cist-kod.md
+  - jak-cist-kod.yml
+  - jak-psat-kod.md
+  - jak-psat-kod.yml
+  - podminkove-vyrazy.md
+  - podminkove-vyrazy.yml
+  - vlocky.yml
+  

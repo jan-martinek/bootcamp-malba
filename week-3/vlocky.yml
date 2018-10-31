@@ -1,0 +1,122 @@
+bloom: create
+input: turtle
+questions: >
+  ### Vločky, opakování a zrcadlící podmínka
+
+
+  V následujícím kódu budeme vylepšovat vločku. Podobně jako při stříhání
+  papírových vloček nemusíme kreslit každou část vločky samostatně. Namísto
+  skládání papíru a nůžek však použijeme funkci `repeat(fn, n)`, která v sobě
+  skrývá opakování — stačí jí předat název funkce a počet opakování (viz
+  příklad).
+
+
+  Funkce jsou pojmenované kousky kódu, kterým můžeme předat parametry — nejprve
+  je vydefinujeme (napíšeme, co dělají) a pak je zavoláme (třeba i několikrát).
+  Projděte si [kousek třetí
+  kapitoly](https://eloquentjavascript.net/03_functions.html) knihy Eloquent
+  Javascript (po titulek „Nested scope“), kde jsou základy práce s funkcemi
+  stručně vysvětleny.
+
+
+  Prakticky je to vidět nejlépe — funkce, která se opakuje, je připravená v
+  příkladu: prohlédněte si kód ve funkci `snowflake(preview)` a pracujte pouze s
+  obsahem funkce `snowflakePart(mirror)`, která kreslí **zrcadlovou polovinu**
+  jednoho z „cípů“ vločky. Z tohoto kousku je pak vykreslená celá vločka. Aby
+  bylo možné generovat zrcadlovou část, je potřebné všechny otáčky (`right` či
+  `left`) vynásobit proměnnou `mirror` (z otočky doprava o 30 stupňů se tak
+  stane otočka doprava o -30 stupňů, tzn. vlastně otočka doleva).
+
+
+  > **Pozn.:** Při skriptování můžete běžně používat i jiný způsob, jak vytvořit
+  opakování — v Javascriptu například cykly `while`, `do … while` a `for`. Pokud
+  chcete, můžete tento způsob použít i v úkolech, ale podmínkou je, že
+  vysvětlíte hodnotícím, jak pracuje (pomocí komentářů, nikoli pouhým odkazem).
+  Obecně by ale mělo stačit užití funkce `repeat()`.
+
+
+
+  ### Zadání
+
+
+  Vytvořte vlastní design vločky pomocí funkce `snowflakePart(mirror)`, který je
+  výrazně bohatší a odlišný od připraveného vzoru. Jedinou podmínkou je, že na
+  konci musí želva stát na místě, kde začínala, a dívat se stejným směrem. (Při
+  zpracování úkolu si nicméně zkuste, jak to dopadne, když tuto podmínku
+  nesplníte: výsledky jsou často velmi pěkné. Nejspíš to zakusíte i omylem.)
+
+
+  > **Pozn.:** Možná jste si všimli, že funkce používají příkazy želvě bez toho, 
+  že by želvu dostaly v parametru. To je možné díky tomu, že je želva definovaná
+  jako globální proměnná na začátku skriptu. Kdybychom ji vydefinovali například
+  uvnitř funkce `p.setup()`, už by to možné nebylo.
+
+  >
+
+  > Tento přístup je pohodlný, ale má nevýhodu — kterákoli funkce nám může
+  želvu „sebrat“ a dělat si s ní, co se jí zachce. To je problém, pokud na kódu
+  spolupracujeme s někým jiným, ale i tehdy, kdy jen zapomeneme, že „tady
+  jsme někde cosi změnili“ a najednou se želva chová jinak. Nyní to ale není 
+  zásadní problém a pokud s kódem zacházíme opatrně, dá se tohoto chování
+  Javascriptu s výhodou využívat.
+prefill: |
+  var turtle, run, size = toy.measure();
+  var highlight = true; // zvýraznit 1 dílek
+
+  var snowflakePart = function(mirror) {
+    turtle.forward(50);
+
+    // výčnělek
+    turtle.right(mirror * 60);
+    turtle.forward(30);
+    turtle.back(30);
+    turtle.left(mirror * 60);
+
+    turtle.forward(30); // špička
+    turtle.back(30 + 50); // návrat zpět
+  };
+
+
+  /**************************************
+   *                                    *
+   * úpravy ve zbytku kódu nejsou nutné *
+   *                                    *
+   **************************************/
+
+  var drawPart = function(i) {
+    turtle.color = 'white';
+    snowflakePart(-1);
+    
+    if (i === 0 && highlight) { 
+      turtle.color = 'red'; 
+    }
+    snowflakePart(1);
+    
+    turtle.right(360/6);
+  };
+
+  var drawSnowflake = function() {
+    repeat(drawPart, 6);
+  };
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+
+    turtle = new Turtle(p);
+    drawSnowflake();
+    
+    turtle.right(720);
+    run = turtle.getRun();
+  };
+
+  p.draw = function() {
+    p.background(100, 100, 200);
+    run.animate(5);
+  };
+
+  var repeat = function(fn, n) {
+    var a = Array.apply(null, Array(n)).map(
+      function(_, i) {return i;}
+    ).forEach(fn);
+  };
